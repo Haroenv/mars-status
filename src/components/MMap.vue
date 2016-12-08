@@ -2,7 +2,7 @@
   <div class="rover-map">
     <div class="base"></div>
     <div v-for="rover of data">
-      <div class="rover" :style="{top:}"></div>
+      <div class="rover" :style="{top: rover.position.y}"></div>
     </div>
   </div>
 </template>
@@ -34,7 +34,7 @@
 </style>
 <script>
 export default {
-  props {
+  props: {
     data: [{
         "id": "iets",
         "name": "ZigZagRover1",
