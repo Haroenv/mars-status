@@ -29,14 +29,18 @@ io.on('connection', function (socket) {
   getWorkingRovers(sendData);
 });
 
+const opts = {
+  timeout: 5000
+}
+
 function getWorkingRovers(callback) {
-  fetch('http://roguerovers-api-develop.azurewebsites.net/api/channel/')
+  fetch('http://roguerovers-api-develop.azurewebsites.net/api/channel/', opts)
     .then(function(res) {
       return res.json();
     }).then((dataRovers) => {
       workingRovers = [];
       dataRovers.forEach((rover, i) => {
-        fetch(`http://roguerovers-api-develop.azurewebsites.net/api/channel/${rover}`)
+        fetch(`http://roguerovers-api-develop.azurewebsites.net/api/channel/${rover}`, opts)
           .then((res) => {
             return res.json();
           })
@@ -58,9 +62,9 @@ function sendData() {
   roversData = [];
 	workingRovers.forEach((rover, i) => {
     Promise.all([
-      fetch(`http://roguerovers-api-develop.azurewebsites.net/api/channel/${rover}`),
-      fetch(`http://roguerovers-api-develop.azurewebsites.net/api/channel/${rover}/sensor/w1`),
-      fetch(`http://roguerovers-api-develop.azurewebsites.net/api/channel/${rover}/sensor/t1`)
+      fetch(`http://roguerovers-api-develop.azurewebsites.net/api/channel/${rover}`, opts),
+      fetch(`http://roguerovers-api-develop.azurewebsites.net/api/channel/${rover}/sensor/w1`, opts),
+      fetch(`http://roguerovers-api-develop.azurewebsites.net/api/channel/${rover}/sensor/t1`, opts)
     ]).then((values) => {
       return Promise.all([
         values[0].json(),
@@ -88,7 +92,7 @@ function sendData() {
   });
 }
 
-setInterval(sendData, 500);
+setInterval(sendData, 200);
 
 /**
  * Distance between two points

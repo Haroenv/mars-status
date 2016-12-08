@@ -1,4 +1,8 @@
 import Vue from 'vue';
+// import socketio from 'socket.io-client';
+
+// const socket = socketio();
+//
 import VueSocketio from 'vue-socket.io';
 
 Vue.use(VueSocketio, 'http://localhost:8080');
@@ -6,10 +10,11 @@ Vue.use(VueSocketio, 'http://localhost:8080');
 import App from './App.vue';
 
 const vm = new Vue({
-  sockets: {
+  socket: {
     list: (val) => {
       console.log(val);
-      this.rovers = val;
+      rovers = val;
+      this.$set('rovers', val);
     }
   },
   data: {
@@ -18,3 +23,9 @@ const vm = new Vue({
   el: '#app',
   render: h => h(App)
 });
+
+// socket.on('list', function(msg){
+//   console.log(msg);
+//   vm.$set('rovers', msg);
+//   vm.rovers.push(msg);
+// });
