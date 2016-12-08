@@ -33,7 +33,7 @@
     </th>
   </thead>
   <tbody>
-    <tr v-for="rover of data" class="b--light-silver bb" @click="select(rover)">
+    <tr v-for="rover of list" class="b--light-silver bb">
       <td class="pa2 tc">{{rover.name}}</td>
       <td class="pa2 tc">{{rover.position.x}}</td>
       <td class="pa2 tc">{{rover.position.y}}</td>
@@ -78,9 +78,6 @@ export default {
           return a.position[what] - b.position[what];
         }
       });
-    },
-    select: (id) => {
-      this.$emit('select', id);
     }
   }
 }
