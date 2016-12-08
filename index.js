@@ -30,7 +30,6 @@ io.on('connection', function (socket) {
 });
 
 function getWorkingRovers(callback) {
-  console.log("getWorking");
   fetch('http://roguerovers-api-develop.azurewebsites.net/api/channel/')
     .then(function(res) {
       return res.json();
@@ -56,7 +55,6 @@ function getWorkingRovers(callback) {
 }
 
 function sendData() {
-  console.log("send");
   roversData = [];
 	workingRovers.forEach((rover, i) => {
     Promise.all([
@@ -78,9 +76,9 @@ function sendData() {
       roverObj.t1 = temp;
       roverObj.id = rover;
       roverObj.distance = distanceToBase(roverObj.position);
+      io.emit(rover, roverObj);
       roversData.push(roverObj);
-      if(i === workingRovers.length-1) {
-        console.log(roversData);
+      if(roversData.length === workingRovers.length) {
         io.emit('list', roversData);
         setTimeout(sendData, 200);
       }

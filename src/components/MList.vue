@@ -135,7 +135,7 @@ export default {
         case 'x':
       }
       this.rovers.sort((a,b) => {
-
+        //a.position[what]
       });
     }
   }
