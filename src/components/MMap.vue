@@ -33,6 +33,13 @@
     height: 2em;
     background-image: url("/assets/img/rover.png");
   }
+  body {
+    background-color: #000;
+    color:#fff;
+  }
+  h1 {
+    text-align: center;
+  }
 </style>
 <script>
 export default {
