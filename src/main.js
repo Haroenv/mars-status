@@ -8,8 +8,7 @@ import App from './App.vue';
 const vm = new Vue({
   sockets: {
     list: (val) => {
-      console.log(data);
-      console.log(this);
+      console.log(val);
       this.rovers = val;
     }
   },
