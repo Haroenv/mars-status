@@ -43,7 +43,6 @@ const getWorkingRovers = (callback) => {
             }
           })
           .catch(()=>{
-            // suppress
           });
       });
     }).catch(function(err) {
