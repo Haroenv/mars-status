@@ -4,10 +4,7 @@
     <template v-for="rover in data">
       <div class="rover" :style="{top: rover.position.y + 'px', left: rover.position.x +'px'}">
       </div>
-
     </template>
-    <div>{{data}}</div>
-    <span>test</span>
   </div>
 </template>
 
