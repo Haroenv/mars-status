@@ -129,13 +129,19 @@ export default {
   },
   methods: {
     sort: (what, direction) => {
-      console.log(what, direction);
-      let criterion;
-      switch(what) {
-        case 'x':
-      }
       this.rovers.sort((a,b) => {
-        //a.position[what]
+        if(what === 'distance') {
+          if(!direction) {
+            return b.distance - a.distance;
+          }
+          return a.distance - b.distance;
+
+        } else {
+          if(!direction) {
+            return b.position[what] - a.position[what];
+          }
+          return a.position[what] - b.position[what];
+        }
       });
     }
   }
