@@ -55,7 +55,6 @@ let workingRovers = [];
 let roversData = [];
 
 const sendData = (callback) => {
-  console.log('send');
   roversData = [];
   workingRovers.forEach((rover, i) => {
     Promise.all([
@@ -77,13 +76,8 @@ const sendData = (callback) => {
       roverObj.t1 = temp;
       roverObj.id = rover;
       roverObj.distance = distanceToBase(roverObj.position);
-      // io.emit(rover, roverObj);
       roversData.push(roverObj);
       if(roversData.length === workingRovers.length) {
-        // io.emit('list', roversData);
-        console.log(roversData);
-        // this.data.rovers = roversData;
-        console.log(this, '!!!');
         callback(roversData);
         setTimeout(()=>{
           sendData(callback);
@@ -95,16 +89,6 @@ const sendData = (callback) => {
     });
   });
 }
-
-// sendData();
-
-// setInterval(sendData, 1000);
-
-// socket.on('list', function(msg){
-//   console.log(msg);
-//   vm.$set('rovers', msg);
-//   vm.rovers.push(msg);
-// });
 
 /**
  * Distance between two points
