@@ -10,7 +10,7 @@ const vm = new Vue({
     connect: () => {
       console.log('socket connected');
     },
-    data: (val) => {
+    list: (val) => {
       console.log('this method fired by socket server. eg: io.emit("data", data)');
       console.log(val);
     }
