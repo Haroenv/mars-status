@@ -1,46 +1,36 @@
 <template>
-<table class="list pa2 mw6 center ba b--light-silver br2 striped--light-gray">
+<table class="list pa2 mw6 center">
   <thead>
-    <th class="pa2">name</th>
-    <th class="pa2">
-      <div class="flex items-center">
-        <span>x</span>
-        <div class="flex flex-column f-1 ma1">
-          <span class="pointer" @click="sort('x', true)">▲</span>
-          <span class="pointer rot180" @click="sort('x', false)">▲</span>
-        </div>
-      </div>
-    </th>
-    <th class="pa2">
-      <div class="flex items-center">
-        <span>y</span>
-        <div class="flex flex-column f-1 ma1">
-          <span class="pointer" @click="sort('y', true)">▲</span>
-          <span class="pointer rot180" @click="sort('y', false)">▲</span>
-        </div>
-      </div>
-    </th>
-    <th class="pa2">direction</th>
-    <th class="pa2">speed</th>
-    <th class="pa2">
-      <div class="flex items-center">
-        <span>distance</span>
-        <div class="flex flex-column f-1 ma1">
-          <span class="pointer" @click="sort('distance', true)">▲</span>
-          <span class="pointer rot180" @click="sort('distance', false)">▲</span>
-        </div>
-      </div>
-    </th>
+    <th class="pa2">{{name}}</th>
   </thead>
   <tbody>
-    <tr v-for="rover of rovers" class="b--light-silver bb">
-      <td class="pa2"><a :href="`/rover/${rover.id}`">{{rover.name}}</a></td>
-      <td class="pa2 tc">{{rover.position.x}}</td>
-      <td class="pa2 tc">{{rover.position.y}}</td>
-      <td class="pa2 tc">{{rover.direction}}</td>
-      <td class="pa2 tc">{{rover.speed}}</td>
-      <td class="pa2 tc
-      ">{{rover.distance}}</td>
+    <tr class="b--light-silver bb">
+      <td class="pa2">Id</td>
+      <td class="pa2 tc">{{id}}</td>
+    </tr>
+    <tr class="b--light-silver bb">
+      <td class="pa2">Position</td>
+      <td class="pa2 tc">X: {{position.x}} Y: {{position.y}}</td>
+    </tr>
+    <tr class="b--light-silver bb">
+      <td class="pa2">Speed</td>
+      <td class="pa2 tc">{{speed}}</td>
+    </tr>
+    <tr class="b--light-silver bb">
+      <td class="pa2">Distance to base</td>
+      <td class="pa2 tc">{{distance}}</td>
+    </tr>
+    <tr class="b--light-silver bb">
+      <td class="pa2">Direction</td>
+      <td class="pa2 tc">{{direction}}</td>
+    </tr>
+    <tr class="b--light-silver bb">
+      <td class="pa2">Temperature</td>
+      <td class="pa2 tc">{{w1}}</td>
+    </tr>
+    <tr class="b--light-silver bb">
+      <td class="pa2">Water</td>
+      <td class="pa2 tc">{{direction}}</td>
     </tr>
   </tbody>
 </table>
@@ -61,35 +51,6 @@ export default {
     list: (val) => {
       console.log('this method fired by socket server. eg: io.emit("data", data)');
       console.log(val);
-      // this.rovers = {
-      //   "meme": {
-      //     "name": "ZigZagRover2",
-      //     "position": {
-      //       "x": 21,
-      //       "y": 50
-      //     },
-      //     "direction": 2,
-      //     "speed": 1
-      //   },
-      //   "memey": {
-      //     "name": "ZigZagRover2",
-      //     "position": {
-      //       "x": 21,
-      //       "y": 50
-      //     },
-      //     "direction": 2,
-      //     "speed": 1
-      //   },
-      //   "memer": {
-      //     "name": "ZigZagRover2",
-      //     "position": {
-      //       "x": 21,
-      //       "y": 50
-      //     },
-      //     "direction": 2,
-      //     "speed": 1
-      //   }
-      // };
     }
   },
   data() {
@@ -106,22 +67,6 @@ export default {
       };
   },
   methods: {
-    sort: (what, direction) => {
-      this.rovers.sort((a,b) => {
-        if(what === 'distance') {
-          if(!direction) {
-            return b.distance - a.distance;
-          }
-          return a.distance - b.distance;
-
-        } else {
-          if(!direction) {
-            return b.position[what] - a.position[what];
-          }
-          return a.position[what] - b.position[what];
-        }
-      });
-    }
   }
 }
 </script>
