@@ -1,5 +1,5 @@
 <template lang="pug">
-al-stats(hits=5, time=100)
+al-stats(:hits=5, :time=100)
 </template>
 
 <script>

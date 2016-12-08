@@ -24,8 +24,13 @@
     "express": "^4.14.0",
     "got": "^6.6.3",
     "pug": "^2.0.0-beta6",
+<<<<<<< HEAD
     "socket.io": "^1.7.1",
     "vue": "^2.0.1"
+=======
+    "vue": "^2.0.1",
+    "vue-socket.io": "^2.0.1"
+>>>>>>> fbcfcd274ffa5b9019faecc44ab04c143fa5591e
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
