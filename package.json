@@ -23,7 +23,8 @@
   "dependencies": {
     "express": "^4.14.0",
     "pug": "^2.0.0-beta6",
-    "vue": "^2.0.1"
+    "vue": "^2.0.1",
+    "vue-socket.io": "^2.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
