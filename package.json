@@ -22,7 +22,9 @@
   "homepage": "https://github.com/haroenv/mars-status#readme",
   "dependencies": {
     "express": "^4.14.0",
+    "got": "^6.6.3",
     "pug": "^2.0.0-beta6",
+    "socket.io": "^1.7.1",
     "vue": "^2.0.1"
   },
   "devDependencies": {
