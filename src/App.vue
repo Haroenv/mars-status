@@ -1,13 +1,17 @@
 <template lang="pug">
-al-stats(:hits=5, :time=100)
+div
+  al-stats(:hits=5, :time=100)
+  m-list
 </template>
 
 <script>
 import AlStats from './components/AlStats.vue'
+import MList from './components/MList.vue'
 
 export default {
   components: {
-    AlStats
+    AlStats,
+    MList
   }
 }
 </script>
