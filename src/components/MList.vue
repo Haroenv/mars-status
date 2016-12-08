@@ -58,73 +58,12 @@
 export default {
   sockets: {
     list: (val) => {
-      console.log('this method fired by socket server. eg: io.emit("data", data)');
-      console.log(val);
-      // this.rovers = {
-      //   "meme": {
-      //     "name": "ZigZagRover2",
-      //     "position": {
-      //       "x": 21,
-      //       "y": 50
-      //     },
-      //     "direction": 2,
-      //     "speed": 1
-      //   },
-      //   "memey": {
-      //     "name": "ZigZagRover2",
-      //     "position": {
-      //       "x": 21,
-      //       "y": 50
-      //     },
-      //     "direction": 2,
-      //     "speed": 1
-      //   },
-      //   "memer": {
-      //     "name": "ZigZagRover2",
-      //     "position": {
-      //       "x": 21,
-      //       "y": 50
-      //     },
-      //     "direction": 2,
-      //     "speed": 1
-      //   }
-      // };
+      this.rovers = val;
     }
   },
   data() {
     return {
-      "rovers": [{
-        "id": "iets",
-        "name": "ZigZagRover1",
-        "position": {
-          "x": 21,
-          "y": 50
-        },
-        "direction": 2,
-        "speed": 1,
-        "distance": 5
-      }, {
-        "id": "iets",
-        "name": "ZigZagRover1",
-        "position": {
-          "x": 21,
-          "y": 50
-        },
-        "direction": 2,
-        "speed": 1,
-        "distance": 2
-
-      }, {
-        "id": "iets",
-        "name": "ZigZagRover1",
-        "position": {
-          "x": 21,
-          "y": 50
-        },
-        "direction": 2,
-        "speed": 1,
-        "distance": 1
-      }]
+      rovers: []
     };
   },
   methods: {
