@@ -2,6 +2,7 @@
 div
   al-stats(:hits=5, :time=100)
   m-list(:data=rovers)
+  m-map
 </template>
 
 <script>

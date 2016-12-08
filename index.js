@@ -80,7 +80,6 @@ function sendData() {
       roversData.push(roverObj);
       if(roversData.length === workingRovers.length) {
         io.emit('list', roversData);
-        setTimeout(sendData, 200);
       }
     })
     .catch((err) => {
@@ -88,6 +87,8 @@ function sendData() {
     });
   });
 }
+
+setInterval(sendData, 500);
 
 /**
  * Distance between two points
