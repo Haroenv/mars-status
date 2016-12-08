@@ -3,6 +3,36 @@
   "version": "1.0.0",
   "description": "A status dashboard for Mars.  #hackthefuture",
   "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server --inline --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "start": "npm run build && node index.js"
+  },
   "author": "Haroen Viaene <hello@haroen.me>",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haroenv/mars-status.git"
+  },
+  "bugs": {
+    "url": "https://github.com/haroenv/mars-status/issues"
+  },
+  "homepage": "https://github.com/haroenv/mars-status#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "pug": "^2.0.0-beta6",
+    "vue": "^2.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-preset-es2015": "^6.0.0",
+    "cross-env": "^3.0.0",
+    "css-loader": "^0.25.0",
+    "file-loader": "^0.9.0",
+    "vue-loader": "^9.4.0",
+    "webpack": "2.1.0-beta.22",
+    "webpack-dev-server": "^2.1.0-beta.0"
+  }
 }
