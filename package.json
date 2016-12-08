@@ -21,8 +21,10 @@
   },
   "homepage": "https://github.com/haroenv/mars-status#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "got": "^6.6.3",
+    "node-fetch": "^1.6.3",
     "pug": "^2.0.0-beta6",
     "socket.io": "^1.7.1",
     "socket.io-client": "^1.7.1",
