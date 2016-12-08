@@ -111,10 +111,15 @@ function distanceToBase(rover) {
   });
 }
 
+this.$on('select', () => {
+
+})
+
 export default {
   data() {
     return {
-      rovers: []
+      rovers: [],
+      selected: ''
     };
   },
   mounted() {
