@@ -130,6 +130,13 @@ export default {
   methods: {
     sort: (what, direction) => {
       console.log(what, direction);
+      let criterion;
+      switch(what) {
+        case 'x':
+      }
+      this.rovers.sort((a,b) => {
+
+      });
     }
   }
 }

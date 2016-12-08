@@ -77,8 +77,10 @@ function sendData() {
       roverObj.w1 = water;
       roverObj.t1 = temp;
       roverObj.id = rover;
+      roverObj.distance = distanceToBase(roverObj.position);
       roversData.push(roverObj);
       if(i === workingRovers.length-1) {
+        console.log(roversData);
         io.emit('list', roversData);
         setTimeout(sendData, 200);
       }
@@ -96,7 +98,7 @@ function sendData() {
  * @return {Number}        the distance between them
  */
 function distance(first, second) {
-  return Math.sqrt((second.x - first.x) ** 2 + (second.y - first.y) ** 2);
+  return Math.sqrt(Math.pow(second.x - first.x,2) + Math.pow(second.y - first.y,2));
 }
 
 /**
