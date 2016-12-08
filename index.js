@@ -53,7 +53,7 @@ function getWorkingRovers(callback) {
     }).catch(function(err) {
       io.emit('list', {error: err});
     });
-};
+}
 
 function sendData() {
   console.log("send");
@@ -84,9 +84,9 @@ function sendData() {
       }
     })
     .catch((err) => {
-      console.log(err)
+      console.log(err);
     });
   });
-};
+}
 
 
