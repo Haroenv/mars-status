@@ -57,11 +57,14 @@
 <script>
 export default {
   props: {
-    data: Array
+    list: {
+      type: Array,
+      required: true
+    }
   },
   methods: {
     sort: (what, direction) => {
-      this.data.sort((a,b) => {
+      this.list.sort((a,b) => {
         if(what === 'distance') {
           if(!direction) {
             return b.distance - a.distance;
