@@ -1,7 +1,7 @@
 <template lang="pug">
 div
   al-stats(:hits=5, :time=100)
-  m-list
+  m-list(:data=rovers)
 </template>
 
 <script>

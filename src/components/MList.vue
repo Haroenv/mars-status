@@ -33,7 +33,7 @@
     </th>
   </thead>
   <tbody>
-    <tr v-for="rover of rovers" class="b--light-silver bb">
+    <tr v-for="rover of data" class="b--light-silver bb">
       <td class="pa2"><a :href="`/rover/${rover.id}`">{{rover.name}}</a></td>
       <td class="pa2 tc">{{rover.position.x}}</td>
       <td class="pa2 tc">{{rover.position.y}}</td>
@@ -56,20 +56,12 @@
 
 <script>
 export default {
-  sockets: {
-    list: (val) => {
-      console.log(val);
-      this.rovers = val;
-    }
-  },
-  data() {
-    return {
-      rovers: []
-    };
+  props: {
+    data: Array
   },
   methods: {
     sort: (what, direction) => {
-      this.rovers.sort((a,b) => {
+      this.data.sort((a,b) => {
         if(what === 'distance') {
           if(!direction) {
             return b.distance - a.distance;
