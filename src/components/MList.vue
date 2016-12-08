@@ -1,5 +1,5 @@
 <template>
-<table class="list pa2 mw6 center ba b--light-silver br2 striped--light-gray">
+<table class="list pa2 mw6 center ba">
   <thead>
     <th class="pa2">name</th>
     <th class="pa2">
@@ -58,6 +58,7 @@
 export default {
   sockets: {
     list: (val) => {
+      console.log(val);
       this.rovers = val;
     }
   },
