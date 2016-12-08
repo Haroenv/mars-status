@@ -5,8 +5,7 @@ Vue.use(VueSocketio, 'http://localhost:8080');
 
 import App from './App.vue';
 
-// eslint-disable-next-line no-new
-new Vue({
+const vm = new Vue({
   sockets: {
     connect: () => {
       console.log('socket connected');
