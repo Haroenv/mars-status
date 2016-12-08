@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "prod": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "build": "webpack --progress --hide-modules",
     "watch": "webpack --progress --hide-modules --watch",
     "start": "npm run build && node index.js"
   },
