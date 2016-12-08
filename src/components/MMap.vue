@@ -36,42 +36,11 @@
 </style>
 <script>
 export default {
-  data() {
-    return [
-      {
-        "id": "iets",
-        "name": "ZigZagRover1",
-        "position": {
-          "x": 21,
-          "y": 50
-        },
-        "direction": 2,
-        "speed": 1,
-        "distance": 5
-      },
-      {
-        "id": "iets",
-        "name": "ZigZagRover1",
-        "position": {
-          "x": 20,
-          "y": 0
-        },
-        "direction": 2,
-        "speed": 1,
-        "distance": 2
-      },
-      {
-        "id": "iets",
-        "name": "ZigZagRover1",
-        "position": {
-          "x": 1,
-          "y": 51
-        },
-        "direction": 2,
-        "speed": 1,
-        "distance": 200
-      }
-    ]
+  props: {
+    data: {
+      type: Array,
+      required: true
+    }
   }
 }
 </script>

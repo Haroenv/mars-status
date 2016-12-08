@@ -3,7 +3,7 @@ div
   h1 Mars Dashboard
   m-list(:list='rovers')
   rover-detail
-  m-map
+  m-map(:data='rovers')
 </template>
 
 <style>
@@ -111,9 +111,9 @@ function distanceToBase(rover) {
   });
 }
 
-this.$on('select', () => {
+// this.$on('select', () => {
 
-})
+// })
 
 export default {
   data() {
