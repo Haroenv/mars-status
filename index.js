@@ -92,7 +92,7 @@ function sendData() {
   });
 }
 
-setInterval(sendData, 200);
+setInterval(sendData, 1000);
 
 /**
  * Distance between two points

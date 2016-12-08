@@ -1,18 +1,16 @@
 <template lang="pug">
 div
-  al-stats(:hits=5, :time=100)
+  h1 Mars Dashboard
   m-list(:data=rovers)
   m-map
 </template>
 
 <script>
-import AlStats from './components/AlStats.vue';
 import MList from './components/MList.vue';
 import MMap from './components/MMap.vue';
 
 export default {
   components: {
-    AlStats,
     MList,
     MMap
   }

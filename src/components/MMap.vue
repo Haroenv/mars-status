@@ -1,9 +1,13 @@
 <template>
   <div class="rover-map">
     <div class="base"></div>
-    <div v-for="rover of data">
-      <div class="rover" :style="{top: rover.position.y}"></div>
-    </div>
+    <template v-for="rover in data">
+      <div class="rover" :style="{top: rover.position.y + 'px', left: rover.position.x +'px'}">
+      </div>
+
+    </template>
+    <div>{{data}}</div>
+    <span>test</span>
   </div>
 </template>
 
@@ -14,6 +18,7 @@
     height: 800px;
     background-image: url("/assets/img/mars.jpg");
     background-repeat: repeat;
+    margin: 1em auto;
   }
   .base {
     position: absolute;
@@ -34,8 +39,9 @@
 </style>
 <script>
 export default {
-  props: {
-    data: [{
+  data() {
+    return [
+      {
         "id": "iets",
         "name": "ZigZagRover1",
         "position": {
@@ -45,7 +51,8 @@ export default {
         "direction": 2,
         "speed": 1,
         "distance": 5
-      }, {
+      },
+      {
         "id": "iets",
         "name": "ZigZagRover1",
         "position": {
@@ -55,8 +62,8 @@ export default {
         "direction": 2,
         "speed": 1,
         "distance": 2
-
-      }, {
+      },
+      {
         "id": "iets",
         "name": "ZigZagRover1",
         "position": {
@@ -66,7 +73,8 @@ export default {
         "direction": 2,
         "speed": 1,
         "distance": 200
-      }]
+      }
+    ]
   }
 }
 </script>
