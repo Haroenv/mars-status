@@ -34,7 +34,7 @@
   </thead>
   <tbody>
     <tr v-for="rover of data" class="b--light-silver bb">
-      <td class="pa2"><a :href="`/rover/${rover.id}`">{{rover.name}}</a></td>
+      <td class="pa2">{{rover.name}}</td>
       <td class="pa2 tc">{{rover.position.x}}</td>
       <td class="pa2 tc">{{rover.position.y}}</td>
       <td class="pa2 tc">{{rover.direction}}</td>
