@@ -5,13 +5,15 @@ div
 </template>
 
 <script>
-import AlStats from './components/AlStats.vue'
-import MList from './components/MList.vue'
+import AlStats from './components/AlStats.vue';
+import MList from './components/MList.vue';
+import MMap from './components/MMap.vue';
 
 export default {
   components: {
     AlStats,
-    MList
+    MList,
+    MMap
   }
 }
 </script>
