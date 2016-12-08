@@ -31,11 +31,11 @@ io.on('connection', function (socket) {
 sendData = function() {
 	fetch('http://roguerovers-api-develop.azurewebsites.net/api/channel/')
 		.then(function(response) {
-			response.json().then((data) => {
-				io.emit('list', data);
-				setTimeout(sendData, 200);
-			});
-		}).catch(function(err) {
+			return response.json();
+		}).then((data) => {
+      io.emit('list', data);
+      setTimeout(sendData, 200);
+    }).catch(function(err) {
 			io.emit('list', {error: err});
 		});
 };
