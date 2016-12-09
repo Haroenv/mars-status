@@ -5,6 +5,16 @@ import {distanceToBase} from './math.js';
 let workingRovers = [];
 let roversData = [];
 
+function checkStatus(response) {
+  if (response.status >= 200 && response.status < 300) {
+    return response
+  } else {
+    var error = new Error(response.statusText)
+    error.response = response
+    throw error
+  }
+}
+
 export const getWorkingRovers = (callback) => {
   fetch('http://roguerovers-api-develop.azurewebsites.net/api/channel/')
     .then(function(res) {
@@ -13,6 +23,7 @@ export const getWorkingRovers = (callback) => {
       workingRovers = [];
       dataRovers.forEach((rover, i) => {
         fetch(`http://roguerovers-api-develop.azurewebsites.net/api/channel/${rover}`)
+          .then(checkStatus)
           .then((res) => {
             return res.json();
           })
@@ -26,19 +37,21 @@ export const getWorkingRovers = (callback) => {
           .catch(() => {
           });
       });
-    }).catch((err) => {
+    }).catch(() => {
       // io.emit('list', {error: err});
     });
 }
-
 
 export const getDetails = (callback) => {
   roversData = [];
   workingRovers.forEach((rover, i) => {
     Promise.all([
-      fetch(`http://roguerovers-api-develop.azurewebsites.net/api/channel/${rover}`),
-      fetch(`http://roguerovers-api-develop.azurewebsites.net/api/channel/${rover}/sensor/w1`),
+      fetch(`http://roguerovers-api-develop.azurewebsites.net/api/channel/${rover}`)
+        .then(checkStatus),
+      fetch(`http://roguerovers-api-develop.azurewebsites.net/api/channel/${rover}/sensor/w1`)
+        .then(checkStatus),
       fetch(`http://roguerovers-api-develop.azurewebsites.net/api/channel/${rover}/sensor/t1`)
+        .then(checkStatus)
     ]).then((values) => {
       return Promise.all([
         values[0].json(),
