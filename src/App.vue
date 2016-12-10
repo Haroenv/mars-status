@@ -1,5 +1,5 @@
 <template lang="pug">
-div(@select='handleSelect(id)')
+div
   h1.tc Mars Dashboard
   m-list(:list='rovers')
   rover-detail(:rover='detail')
@@ -25,12 +25,6 @@ export default {
         this.rovers = res;
       })
     });
-  },
-  methods: {
-    handleSelect: function(id) {
-      alert(id);
-      this.detail = this.rovers[this.rovers.findIndex(id)];
-    }
   },
   components: {
     MList,

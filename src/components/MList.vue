@@ -33,7 +33,7 @@
     </th>
   </thead>
   <tbody>
-    <tr v-for="rover of list" :key="rover.id" class="pointer" @click="select(rover.id)">
+    <tr v-for="rover of list" :key="rover.id" class="pointer" @click="select(rover)">
       <td class="pa2 tc">{{rover.name}}</td>
       <td class="pa2 tc">{{rover.position.x}}</td>
       <td class="pa2 tc">{{rover.position.y}}</td>
@@ -69,7 +69,7 @@ export default {
     }
   },
   computed: {
-    data: () => {
+    data() {
       const array = this.list.slice();
       return array.sort((a,b) => {
         if(this.what === 'distance') {
@@ -87,13 +87,12 @@ export default {
     }
   },
   methods: {
-    setSort: (what, direction) => {
+    setSort(what, direction) {
       this.what = what;
       this.direction = direction;
     },
-    select: function(id) {
-      // alert(id);
-      this.$emit('select', id);
+    select(rover) {
+      this.$parent.detail = rover;
     }
   }
 }
