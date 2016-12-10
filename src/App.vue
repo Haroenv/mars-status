@@ -1,8 +1,8 @@
 <template lang="pug">
-div
+div(@select='handleSelect(id)')
   h1.tc Mars Dashboard
   m-list(:list='rovers')
-  rover-detail
+  rover-detail(:rover='detail')
   m-map(:data='rovers')
 </template>
 
@@ -12,15 +12,11 @@ import MMap from './components/MMap.vue';
 import RoverDetail from './components/RoverDetail.vue';
 import {getWorkingRovers, getDetails} from './lib/get-data.js';
 
-// this.$on('select', () => {
-
-// })
-
 export default {
   data() {
     return {
       rovers: [],
-      selected: ''
+      detail: {"id": "iets","name": "ZigZagRover1","position": {"x": 21,"y": 50},"direction": 2,"speed": 1,"distance": 5}
     };
   },
   mounted() {
@@ -29,6 +25,12 @@ export default {
         this.rovers = res;
       })
     });
+  },
+  methods: {
+    handleSelect: function(id) {
+      alert(id);
+      this.detail = this.rovers[this.rovers.findIndex(id)];
+    }
   },
   components: {
     MList,

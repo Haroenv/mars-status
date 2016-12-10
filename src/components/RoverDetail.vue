@@ -1,70 +1,49 @@
 <template>
-<table class="list pa2 ma2 center ba">
+<table class="list pa2 ma2 center ba b--white">
   <thead>
-    <th class="pa2">{{name}}</th>
+    <th class="pa2 tl">name</th>
+    <th class="pa2">{{rover.name}}</th>
   </thead>
   <tbody>
-    <tr class="bb">
-      <td class="pa2">Id</td>
-      <td class="pa2 tc">{{id}}</td>
+    <tr>
+      <td class="pa2">ID</td>
+      <td class="pa2 tc">{{rover.id}}</td>
     </tr>
-    <tr class="bb">
+    <tr>
       <td class="pa2">Position</td>
-      <td class="pa2 tc">X: {{position.x}} Y: {{position.y}}</td>
+      <td class="pa2 tc">X: {{rover.position.x}} Y: {{rover.position.y}}</td>
     </tr>
-    <tr class="bb">
+    <tr>
       <td class="pa2">Speed</td>
-      <td class="pa2 tc">{{speed}}</td>
+      <td class="pa2 tc">{{rover.speed}}</td>
     </tr>
-    <tr class="bb">
+    <tr>
       <td class="pa2">Distance to base</td>
-      <td class="pa2 tc">{{distance}}</td>
+      <td class="pa2 tc">{{rover.distance}}</td>
     </tr>
-    <tr class="bb">
+    <tr>
       <td class="pa2">Direction</td>
-      <td class="pa2 tc">{{direction}}</td>
+      <td class="pa2 tc">{{rover.direction}}</td>
     </tr>
-    <tr class="bb">
+    <tr>
       <td class="pa2">Temperature</td>
-      <td class="pa2 tc">{{w1}}</td>
+      <td class="pa2 tc">{{rover.w1}}</td>
     </tr>
-    <tr class="bb">
+    <tr>
       <td class="pa2">Water</td>
-      <td class="pa2 tc">{{direction}}</td>
+      <td class="pa2 tc">{{rover.direction}}</td>
     </tr>
   </tbody>
 </table>
 </template>
 
-<style>
-.rot180 {
-  transform: rotate(180deg);
-}
-.f-1 {
-  font-size: .8em;
-}
-</style>
-
 <script>
 export default {
-  sockets: {
-    list: (val) => {
-      console.log('this method fired by socket server. eg: io.emit("data", data)');
-      console.log(val);
+  props: {
+    rover: {
+      type: Object,
+      required: true
     }
-  },
-  data() {
-    return {
-        "id": "iets",
-        "name": "ZigZagRover1",
-        "position": {
-          "x": 21,
-          "y": 50
-        },
-        "direction": 2,
-        "speed": 1,
-        "distance": 5
-      };
   },
   methods: {
   }

@@ -1,5 +1,5 @@
 <template>
-<table class="list pa2 ma2 center ba">
+<table class="list pa2 ma2 center b--white ba">
   <thead>
     <th class="pa2">name</th>
     <th class="pa2">
@@ -33,7 +33,7 @@
     </th>
   </thead>
   <tbody>
-    <tr v-for="rover of list" :key="rover.id" class="bb">
+    <tr v-for="rover of list" :key="rover.id" class="pointer" @click="select(rover.id)">
       <td class="pa2 tc">{{rover.name}}</td>
       <td class="pa2 tc">{{rover.position.x}}</td>
       <td class="pa2 tc">{{rover.position.y}}</td>
@@ -90,6 +90,10 @@ export default {
     setSort: (what, direction) => {
       this.what = what;
       this.direction = direction;
+    },
+    select: function(id) {
+      // alert(id);
+      this.$emit('select', id);
     }
   }
 }
