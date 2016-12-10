@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
   .rover-map {
     position: relative;
     width: 800px;
@@ -34,6 +34,7 @@
     background-image: url("/assets/img/rover.png");
   }
 </style>
+
 <script>
 export default {
   props: {

@@ -6,8 +6,8 @@
       <div class="flex items-center">
         <span>x</span>
         <div class="flex flex-column f-1 ma1">
-          <span class="pointer" @click="sort('x', true)">▲</span>
-          <span class="pointer rot180" @click="sort('x', false)">▲</span>
+          <span class="pointer" @click="setSort('x', true)">▲</span>
+          <span class="pointer rot180" @click="setSort('x', false)">▲</span>
         </div>
       </div>
     </th>
@@ -15,8 +15,8 @@
       <div class="flex items-center">
         <span>y</span>
         <div class="flex flex-column f-1 ma1">
-          <span class="pointer" @click="sort('y', true)">▲</span>
-          <span class="pointer rot180" @click="sort('y', false)">▲</span>
+          <span class="pointer" @click="setSort('y', true)">▲</span>
+          <span class="pointer rot180" @click="setSort('y', false)">▲</span>
         </div>
       </div>
     </th>
@@ -26,14 +26,14 @@
       <div class="flex items-center">
         <span>distance</span>
         <div class="flex flex-column f-1 ma1">
-          <span class="pointer" @click="sort('distance', true)">▲</span>
-          <span class="pointer rot180" @click="sort('distance', false)">▲</span>
+          <span class="pointer" @click="setSort('distance', true)">▲</span>
+          <span class="pointer rot180" @click="setSort('distance', false)">▲</span>
         </div>
       </div>
     </th>
   </thead>
   <tbody>
-    <tr v-for="rover of list" class="b--light-silver bb">
+    <tr v-for="rover of list" :key="rover.id" class="bb">
       <td class="pa2 tc">{{rover.name}}</td>
       <td class="pa2 tc">{{rover.position.x}}</td>
       <td class="pa2 tc">{{rover.position.y}}</td>
@@ -62,22 +62,34 @@ export default {
       required: true
     }
   },
-  methods: {
-    sort: (what, direction) => {
-      this.list.sort((a,b) => {
-        if(what === 'distance') {
-          if(!direction) {
+  data() {
+    return {
+      what: '',
+      direction: false
+    }
+  },
+  computed: {
+    data: () => {
+      const array = this.list.slice();
+      return array.sort((a,b) => {
+        if(this.what === 'distance') {
+          if(!this.direction) {
             return b.distance - a.distance;
           }
           return a.distance - b.distance;
-
         } else {
           if(!direction) {
-            return b.position[what] - a.position[what];
+            return b.position[this.what] - a.position[this.what];
           }
-          return a.position[what] - b.position[what];
+          return a.position[this.what] - b.position[this.what];
         }
       });
+    }
+  },
+  methods: {
+    setSort: (what, direction) => {
+      this.what = what;
+      this.direction = direction;
     }
   }
 }
