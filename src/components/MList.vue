@@ -1,5 +1,5 @@
 <template>
-<table class="list pa2 center ba">
+<table class="list pa2 ma2 center ba">
   <thead>
     <th class="pa2">name</th>
     <th class="pa2">

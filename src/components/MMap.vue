@@ -1,14 +1,14 @@
 <template>
   <div class="rover-map">
     <div class="base"></div>
-    <template v-for="rover in data">
-      <div class="rover" :style="{top: rover.position.y + 'px', left: rover.position.x +'px'}">
-      </div>
-    </template>
+    <div v-for="rover in data" :key="rover.id" class="rover" :style="{transform: `translate(${rover.position.x}px,${rover.position.y}px)`}" :data-name="rover.name"></div>
   </div>
 </template>
 
 <style scoped>
+  :root {
+    transform-origin: 0% 0%;
+  }
   .rover-map {
     position: relative;
     width: 800px;
@@ -18,20 +18,25 @@
     margin: 1em auto;
   }
   .base {
-    position: absolute;
-    left: 400px;
-    top: 400px;
+    transform: translate(200px, 200px);
     background-size: 100%;
     width: 3em;
     height: 3em;
     background-image: url("/assets/img/base.png");
   }
   .rover {
-    position: absolute;
     background-size: 100%;
     width: 2em;
     height: 2em;
     background-image: url("/assets/img/rover.png");
+    transition: transform .2s;
+    position: relative;
+  }
+  .rover:before {
+    content: attr(data-name);
+    font-size: .8em;
+    position: absolute;
+    left: 2.2em;
   }
 </style>
 
