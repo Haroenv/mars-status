@@ -20,8 +20,7 @@ The front-end is made with Vue
 
 > It doesn't work anymore
 
-That's not a question, and the API is probably shut down
-
+That's not a question, and the API isn't online anymore 😢
 > It's not finished 😡
 
 No, it isn't. Sorry to disappoint you
